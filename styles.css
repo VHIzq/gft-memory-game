@@ -66,3 +66,15 @@ body{
 #modal p{
   font-size: 20px;
 }
+
+#modal button{
+  padding: 10px;
+  margin-top: 5px;
+  color: whitesmoke;
+  border-radius: 3px;
+  background-color: cornflowerblue;
+  border: none;
+}
+#modal button:hover{
+  background-color: rgb(68, 95, 146);
+}

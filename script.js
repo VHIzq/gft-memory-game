@@ -1,5 +1,6 @@
 const $cards = document.querySelectorAll('.card');
 const $modal = document.getElementById('modal');
+const $cta = document.getElementById('cta');
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
@@ -10,6 +11,12 @@ let counter = 0;
 const modal = () => {
   counter === 6 ? $modal.style.visibility = 'visible' : null;
 };
+
+$cta.addEventListener('click', () => {
+  $modal.style.visibility = 'hidden';
+  shuffleCards();
+  unflipCards();
+});
 
 
 function flipCard(){
@@ -28,7 +35,7 @@ function flipCard(){
 
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
   
-  isMatch ? disableCards() : unflipCards();
+  isMatch ? disableCards() : unflipCardsWithTime();
 };
 
 function disableCards() {
@@ -40,15 +47,16 @@ function disableCards() {
   resetBoard();
 };
 
-function unflipCards(){
+function unflipCardsWithTime(){
 
   lockBoard = true;
-  setTimeout(() => {
-    firstCard.classList.remove('flip');
-    secondCard.classList.remove('flip');
+  setTimeout(unflipCards, 1500);
+};
 
-    resetBoard();
-  }, 1500)
+function  unflipCards(){
+  firstCard.classList.remove('flip');
+  secondCard.classList.remove('flip');
+  resetBoard();
 };
 
 function resetBoard() {
@@ -56,12 +64,17 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null];
 };
 
-(function shuffleCards(){
+
+(function newGame(){
+  shuffleCards();
+})();
+
+function shuffleCards(){
   $cards.forEach(element => {
     let randomPosition = Math.floor(Math.random() * 12);
     element.style.order = randomPosition;
   })
-})();
+};
 
 
 
