@@ -33,7 +33,7 @@ function flipCard(){
 
   secondCard = this;
 
-  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+  let isMatch = firstCard.dataset.planet === secondCard.dataset.planet;
   
   isMatch ? disableCards() : unflipCardsWithTime();
 };
