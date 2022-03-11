@@ -1,8 +1,16 @@
 const $cards = document.querySelectorAll('.card');
+const $modal = document.getElementById('modal');
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+let counter = 0;
+
+
+const modal = () => {
+  counter === 6 ? $modal.style.visibility = 'visible' : null;
+};
+
 
 function flipCard(){
   if (lockBoard) return;
@@ -26,6 +34,8 @@ function flipCard(){
 function disableCards() {
   firstCard.removeEventListener('click', flipCard);
   secondCard.removeEventListener('click', flipCard);
+  console.log(++counter);
+  modal();
 
   resetBoard();
 };
@@ -52,5 +62,7 @@ function resetBoard() {
     element.style.order = randomPosition;
   })
 })();
+
+
 
   $cards.forEach(ele => ele.addEventListener("click", flipCard));

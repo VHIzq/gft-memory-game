@@ -7,7 +7,7 @@
 body{
   display: flex;
   height: 100vh;
-  background-color: darkslategrey;
+  background-color: #16232E;
 }
 
 .memory-game{
@@ -48,6 +48,21 @@ body{
   height: 100%;
   padding: 20px;
   border-radius: 5px;
-  background-color: cornflowerblue;
+  background-color: #CC8D1A;
   backface-visibility: hidden;
+}
+
+#modal{
+  visibility: hidden;
+  position: absolute;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+#modal p{
+  font-size: 20px;
 }
