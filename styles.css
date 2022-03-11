@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 *{
   padding: 0;
   margin: 0;
@@ -8,14 +10,46 @@ body{
   display: flex;
   height: 100vh;
   background-color: #16232E;
+  font-family: 'Roboto', sans-serif;
+}
+.start__game{
+  position: absolute;
+  text-align: center;
+  width: 300px;
+  left: calc(50% - 150px);
+  top: 20%;
+}
+
+.start__game h1{
+  color: whitesmoke;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.start__game img{
+  width: 100%;
+}
+#cta__start{
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #ED8B16;
+  border: none;
+  cursor: pointer;
+}
+
+#cta__start:hover{
+  background-color: #be761e;
+  color: whitesmoke;
 }
 
 .memory-game{
+  visibility: hidden;
   display: flex;
+  flex-wrap: wrap;
+  margin: auto;
   width: 640px;
   height: 640px;
-  margin: auto;
-  flex-wrap: wrap;
   perspective: 1000px;
 }
 

@@ -1,12 +1,16 @@
+let id = (id) => document.getElementById(id);
+
 const $cards = document.querySelectorAll('.card');
-const $modal = document.getElementById('modal');
-const $cta = document.getElementById('cta');
+const $modal = id('modal');
+const $cta = id('cta');
+const $ctaStart = id('cta__start');
+const $memoryGame = id('memory-game');
+const $startGame = id('start__game');
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
 let counter = 0;
-
 
 const modal = () => {
   counter === 6 ? $modal.style.visibility = 'visible' : null;
@@ -44,7 +48,7 @@ function disableCards() {
   console.log(++counter);
   modal();
 
-  resetBoard();
+  resetCards();
 };
 
 function unflipCardsWithTime(){
@@ -56,10 +60,10 @@ function unflipCardsWithTime(){
 function  unflipCards(){
   firstCard.classList.remove('flip');
   secondCard.classList.remove('flip');
-  resetBoard();
+  resetCards();
 };
 
-function resetBoard() {
+function resetCards() {
   [hasFlippedCard, lockBoard] = [false, false];
   [firstCard, secondCard] = [null, null];
 };
@@ -79,3 +83,8 @@ function shuffleCards(){
 
 
   $cards.forEach(ele => ele.addEventListener("click", flipCard));
+
+  $ctaStart.addEventListener('click', () => {
+    $memoryGame.style.visibility = 'visible';
+    $startGame.style.visibility = 'hidden';
+  })
